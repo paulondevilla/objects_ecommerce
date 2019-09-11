@@ -1,0 +1,89 @@
+.header {
+  margin-bottom: var(--margin-bottom);
+  background-color: var(--color-brand-dark);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  .logo-container {
+    width: 100;
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo {
+      color: var(--color-white);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  .options-container {
+    width: 100%;
+    padding: 0.6em 0;
+    border-top: 1px solid var(--color-brand-light);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+    &.dropdown-visible {
+      box-shadow: none;
+    }
+
+    .option {
+      width: 33%;
+      color: var(--color-white);
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .dropdown-arrow {
+      margin: 0.3em 0 0 0.2em;
+      font-size: 0.8rem;
+    }
+
+    .item-count {
+      width: 1.2em;
+      height: 1.2em;
+      padding-bottom: 0.1em;
+      border-radius: 50%;
+      margin-left: 0.2em;
+      background-color: var(--color-brand-light);
+      color: var(--color-white);
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dropdown-container {
+      width: 100%;
+      padding: 0.6em 0;
+      border-top: 1px solid var(--color-brand-light);
+      background-color: var(--color-brand-dark);
+      box-shadow: var(--shadow);
+      position: absolute;
+      top: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+
+      .dropdown-options {
+        padding: 0.2em 0;
+        color: var(--color-white);
+        text-decoration: none;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

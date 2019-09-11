@@ -1,0 +1,15 @@
+.collection {
+  margin: var(--page-margin);
+
+  .collection-header {
+    margin-bottom: var(--margin-bottom);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .collection-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1em;
+  }
+}

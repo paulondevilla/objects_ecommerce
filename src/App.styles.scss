@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font: 'Source Sans Pro', sans-serif;
+  --color-brand: hsla(224, 47%, 52%, 1);
+  --color-brand-dark: hsla(224, 47%, 42%, 1);
+  --color-brand-light: hsla(224, 47%, 62%, 1);
+  --color-black: hsla(0, 0%, 7%, 1);
+  --color-white: hsla(0, 0%, 100%, 0.9);
+  --shadow: 0 4px 8px hsla(224, 47%, 42%, 0.7);
+  --margin-bottom: 1rem;
+  --page-margin: 0 10vmin 5vmin;
+}
+
+html {
+  background-color: var(--color-brand-light);
+}
+
+.app {
+  font-family: var(--font);
+}
+
+@media all and (min-width: 1024px) {
+  :root {
+    --page-margin: 0 15vmin 5vmin;
+  }
+}
+
+@media all and (min-width: 2560px) {
+  :root {
+    font-size: 24px;
+  }
+}
