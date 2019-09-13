@@ -1,0 +1,20 @@
+.error-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .error-image {
+    width: 50vmax;
+    height: 50vmax;
+    margin-bottom: 1.5vmax;
+    background-image: url('https://i.imgur.com/yW2W9SC.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .error-text {
+    font-size: 2rem;
+    color: var(--color-white);
+  }
+}

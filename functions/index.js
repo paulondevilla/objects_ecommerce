@@ -58,5 +58,13 @@ exports.handler = async (event, context) => {
     return charge;
   } catch (err) {
     console.log(err);
+
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({
+        status: err
+      })
+    };
   }
 };
