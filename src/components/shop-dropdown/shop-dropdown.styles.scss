@@ -1,0 +1,21 @@
+.shop-dropdown {
+  width: 100%;
+  padding: 0.6em 0;
+  border-top: 1px solid var(--color-brand-light);
+  background-color: var(--color-brand-dark);
+  box-shadow: var(--shadow);
+  position: absolute;
+  top: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+
+  .dropdown-options {
+    padding: 0.2em 0;
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+}

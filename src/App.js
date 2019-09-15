@@ -7,6 +7,8 @@ import { default as Header } from './components/header/header.container';
 import Loader from './components/loader/loader.component';
 import ErrorBoundary from './components/error-boundary/error-boundary.component';
 
+import useStripe from './hooks/use-stripe.hook';
+
 import './App.styles.scss';
 
 const Homepage = lazy(() => import('./pages/homepage/homepage.component'));
@@ -14,8 +16,10 @@ const ShopPage = lazy(() => import('./pages/shop/shop.component'));
 const CartPage = lazy(() => import('./pages/cart/cart.container'));
 
 function App() {
+  const [stripe] = useStripe();
+
   return (
-    <StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}>
+    <StripeProvider stripe={stripe}>
       <div className="app">
         <Header />
         <ErrorBoundary>

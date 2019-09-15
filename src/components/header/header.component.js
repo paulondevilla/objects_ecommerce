@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-import { selectShopCategories } from '../../redux/header/header.selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsDropdownOpen } from '../../redux/header/header.selectors';
+import { toggleDropdown } from '../../redux/header/header.actions';
+
+import ShopDropdown from '../shop-dropdown/shop-dropdown.component';
 
 import './header.styles.scss';
 
 const Header = ({ match, itemCount }) => {
-  const [showDropdown, toggleDropdown] = useState(false);
-  const categories = useSelector(selectShopCategories);
+  const isDropdownOpen = useSelector(selectIsDropdownOpen);
+  const dispatch = useDispatch();
 
   return (
     <header className="header">
@@ -18,14 +21,16 @@ const Header = ({ match, itemCount }) => {
 
       <nav
         className={`options-container ${
-          showDropdown ? 'dropdown-visible' : ''
+          isDropdownOpen ? 'dropdown-visible' : ''
         }`}>
         <Link to="/" className="option">
           Home
         </Link>
-        <div onClick={() => toggleDropdown(!showDropdown)} className="option">
+        <div
+          onClick={() => dispatch(toggleDropdown())}
+          className="dropdown-button option">
           Shop{' '}
-          {showDropdown ? (
+          {isDropdownOpen ? (
             <i className="fas fa-chevron-up dropdown-arrow" />
           ) : (
             <i className="fas fa-chevron-down dropdown-arrow" />
@@ -35,21 +40,8 @@ const Header = ({ match, itemCount }) => {
           Cart
           <span className="item-count">{itemCount}</span>
         </Link>
-
-        {showDropdown ? (
-          <div className="dropdown-container">
-            {categories.map(({ id, title, categoryUrl }) => (
-              <Link
-                key={id}
-                to={`${match.url}${categoryUrl}`}
-                onClick={() => toggleDropdown(false)}
-                className="dropdown-options">
-                {title}
-              </Link>
-            ))}
-          </div>
-        ) : null}
       </nav>
+      {isDropdownOpen && <ShopDropdown match={match} />}
     </header>
   );
 };
